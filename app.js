@@ -58,7 +58,9 @@ async function fetchUpgrades() {
 
     console.log("upgrades from API",upgrades);
 
-    const firstUpgrade= upgrades[0];
+    shopDiv.innerHTML="";
+
+    upgrades.forEach((upgrade) => { 
 
     const upgradeContainer=document.createElement("div");
     const upgradeName=document.createElement("p");
@@ -66,18 +68,18 @@ async function fetchUpgrades() {
     const upgradeIncrease=document.createElement("p");
     const buyButton=document.createElement("button");
 
-    upgradeName.textContent=firstUpgrade.name;
-    upgradeCost.textContent="Cost: " + firstUpgrade.cost;
-    upgradeIncrease.textContent= "Increase: +" + firstUpgrade.increase + " CPS";
+    upgradeName.textContent= upgrade.name;
+    upgradeCost.textContent="Cost: " + upgrade.cost;
+    upgradeIncrease.textContent= "Increase: +" + upgrade.increase + " CPS";
     buyButton.textContent="Buy";
 
     buyButton.addEventListener("click", ()=> {
-        if (cookies < firstUpgrade.cost) {
+        if (cookies < upgrade.cost) {
             alert("Not Enough Cookies!");
             return;
         }
-        cookies= cookies - firstUpgrade.cost;
-        cps= cps + firstUpgrade.increase;
+        cookies= cookies - upgrade.cost;
+        cps= cps + upgrade.increase;
 
         cookieCountSpan.textContent=cookies;
         cpsSpan.textContent=cps;
@@ -91,5 +93,7 @@ async function fetchUpgrades() {
     upgradeContainer.appendChild(buyButton);
 
     shopDiv.appendChild(upgradeContainer);
+});
 }
  fetchUpgrades();
+
