@@ -69,7 +69,21 @@ async function fetchUpgrades() {
     upgradeName.textContent=firstUpgrade.name;
     upgradeCost.textContent="Cost: " + firstUpgrade.cost;
     upgradeIncrease.textContent= "Increase: +" + firstUpgrade.increase + " CPS";
-    buyButton.textContent="Buy"
+    buyButton.textContent="Buy";
+
+    buyButton.addEventListener("click", ()=> {
+        if (cookies < firstUpgrade.cost) {
+            alert("Not Enough Cookies!");
+            return;
+        }
+        cookies= cookies - firstUpgrade.cost;
+        cps= cps + firstUpgrade.increase;
+
+        cookieCountSpan.textContent=cookies;
+        cpsSpan.textContent=cps;
+        
+        saveGame();
+    });
 
     upgradeContainer.appendChild(upgradeName);
     upgradeContainer.appendChild(upgradeCost);
