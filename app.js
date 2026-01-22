@@ -43,6 +43,7 @@ cpsSpan.textContent = cps;
 resetButton.addEventListener("click", ()=>{
     cookies =0;
     cps= 1;
+    
 
     cookieCountSpan.textContent=cookies;
     cpsSpan.textContent=cps;
@@ -72,6 +73,7 @@ async function fetchUpgrades() {
     upgradeCost.textContent="Cost: " + upgrade.cost;
     upgradeIncrease.textContent= "Increase: +" + upgrade.increase + " CPS";
     buyButton.textContent="Buy";
+    buyButton.disabled=cookies< upgrade.cost;
 
     buyButton.addEventListener("click", ()=> {
         if (cookies < upgrade.cost) {
