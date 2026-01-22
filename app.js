@@ -4,6 +4,7 @@ const cookieButton=document.querySelector("#cookieButton");
 const cookieCountSpan=document.querySelector("#cookieCount");
 const cpsSpan=document.querySelector("#cps");
 const resetButton=document.querySelector("#resetButton");
+const shopDiv=document.querySelector("#shop");
 
 
 let cookies = 0;
@@ -49,3 +50,32 @@ resetButton.addEventListener("click", ()=>{
     localStorage.removeItem("cps");
 })
 
+
+
+async function fetchUpgrades() {
+    const response =await fetch("https://cookie-upgrade-api.vercel.app/api/upgrades");
+    const upgrades=await response.json();
+
+    console.log("upgrades from API",upgrades);
+
+    const firstUpgrade= upgrades[0];
+
+    const upgradeContainer=document.createElement("div");
+    const upgradeName=document.createElement("p");
+    const upgradeCost=document.createElement("p");
+    const upgradeIncrease=document.createElement("p");
+    const buyButton=document.createElement("button");
+
+    upgradeName.textContent=firstUpgrade.name;
+    upgradeCost.textContent="Cost: " + firstUpgrade.cost;
+    upgradeIncrease.textContent= "Increase: +" + firstUpgrade.increase + " CPS";
+    buyButton.textContent="Buy"
+
+    upgradeContainer.appendChild(upgradeName);
+    upgradeContainer.appendChild(upgradeCost);
+    upgradeContainer.appendChild(upgradeIncrease);
+    upgradeContainer.appendChild(buyButton);
+
+    shopDiv.appendChild(upgradeContainer);
+}
+ fetchUpgrades();
