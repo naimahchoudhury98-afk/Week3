@@ -16,3 +16,7 @@ cookieButton.addEventListener("click",()=>{
     cookieCountSpan.textContent= cookies;
 });
 
+setInterval (()=>{
+      cookies = cookies + cps;
+      cookieCountSpan.textContent = cookies;
+},1000);
