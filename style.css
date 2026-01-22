@@ -1,0 +1,89 @@
+body{
+    font-family:  Arial;
+     background: #dab47c;
+     margin: 0;
+     padding: 24px;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #ece9e2 ;
+  padding: 24px;
+  border-radius: 16px;
+
+}
+
+
+#cookieButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#cookieButton img {
+  width: 180px;
+  height: auto;
+  
+}
+
+#cookieButton:hover img {
+  transform: scale(1.5);
+}
+
+#cookieButton:active img {
+  transform: scale(0.95);
+}
+
+
+
+
+#shop {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.upgradeCard {
+  border: 1px solid #836f38;  
+   width: 280px;
+  border-radius: 12px;
+  padding: 16px;
+  background: #e6cba6;
+  text-align: center;
+}
+
+.upgradeCard p {
+  margin: 3px ;
+}
+
+.upgradeCard button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #d48c45;
+  color: white;
+  cursor: pointer;
+}
+
+.upgradeCard button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+#cookieButton {
+  display: block;
+  margin: 0 auto 20px auto;
+};
+
+.underCookie {
+  text-align: center;
+}
+.underCookie {
+  text-align: center;
+  margin-bottom: 20px;
+}

@@ -64,6 +64,7 @@ async function fetchUpgrades() {
     upgrades.forEach((upgrade) => { 
 
     const upgradeContainer=document.createElement("div");
+    upgradeContainer.classList.add("upgradeCard");
     const upgradeName=document.createElement("p");
     const upgradeCost=document.createElement("p");
     const upgradeIncrease=document.createElement("p");
@@ -74,6 +75,10 @@ async function fetchUpgrades() {
     upgradeIncrease.textContent= "Increase: +" + upgrade.increase + " CPS";
     buyButton.textContent="Buy";
     buyButton.disabled=cookies< upgrade.cost;
+
+    setInterval(() => {
+        buyButton.disabled=cookies<upgrade.cost;
+    }, 1000);
 
     buyButton.addEventListener("click", ()=> {
         if (cookies < upgrade.cost) {
