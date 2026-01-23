@@ -3,6 +3,7 @@ body{
      background: #dab47c;
      margin: 0;
      padding: 24px;
+     
 }
 
 main {
@@ -80,6 +81,8 @@ main {
   margin: 0 auto 20px auto;
 };
 
+
+
 .underCookie {
   text-align: center;
 }
@@ -87,3 +90,41 @@ main {
   text-align: center;
   margin-bottom: 20px;
 }
+
+#resetButton {
+  background: #f84040;
+  padding: 8px ;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+ cursor: pointer;
+    
+}#resetButton {
+  position: relative;
+}
+
+#resetButton::after {
+  content: "This will reset your progress";
+  position: absolute;
+  background: #e70303;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+#resetButton:hover::after {
+  opacity: 1;
+}
+
+ header{
+  font-family: Arial;
+  padding: 10px;
+  text-align: center; 
+  color: #502e0f;
+}
+
