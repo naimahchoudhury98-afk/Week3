@@ -5,6 +5,8 @@ const cookieCountSpan=document.querySelector("#cookieCount");
 const cpsSpan=document.querySelector("#cps");
 const resetButton=document.querySelector("#resetButton");
 const shopDiv=document.querySelector("#shop");
+const ClickSound=document.querySelector("#clickSound");
+const purchaseSound=document.querySelector("#purchaseSound")
 
 
 let cookies = 0;
@@ -90,6 +92,9 @@ async function fetchUpgrades() {
 
         cookieCountSpan.textContent=cookies;
         cpsSpan.textContent=cps;
+
+        purchaseSound.currentTime=0;
+        purchaseSound.play();
         
         saveGame();
     });
@@ -104,3 +109,12 @@ async function fetchUpgrades() {
 }
  fetchUpgrades();
 
+cookieButton.addEventListener("click", ()=>{
+    cookies++;
+    cookieCountSpan.textContent=cookies;
+
+    clickSound.currentTime=0;
+    clickSound.play();
+
+    saveGame();
+});
